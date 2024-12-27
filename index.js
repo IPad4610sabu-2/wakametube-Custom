@@ -398,7 +398,7 @@ app.get('/getinv/:encodedUrl', async (req, res) => {
       likeCount: videoInfo.likeCount
     };
 
-    res.render('infowatch', templateData);
+    res.render('Yukiyoutube-mod', templateData);
   } catch (error) {
         res.status(500).render('matte', { 
       videoId, 

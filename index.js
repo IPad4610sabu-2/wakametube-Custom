@@ -43,7 +43,7 @@ app.get('/w/:id/5.pdf', async (req, res) => {
         const videoData = response.data;
         console.log(videoData);
 
-        res.render('Yukiyoutube-mod', { videoData });
+        res.render('infowatch', { videoData });
   } catch (error) {
         res.status(500).render('matte', { 
       videoId, 
@@ -398,7 +398,7 @@ app.get('/getinv/:encodedUrl', async (req, res) => {
       likeCount: videoInfo.likeCount
     };
 
-    res.render('Yukiyoutube-mod', templateData);
+    res.render('infowatch', templateData);
   } catch (error) {
         res.status(500).render('matte', { 
       videoId, 

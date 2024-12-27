@@ -45,7 +45,7 @@ app.get('/watch?v=/:id/5.pdf', async (req, res) => {
 
         res.render('infowatch', { videoData });
   } catch (error) {
-        res.status(500).render('matte'）, { 
+        res.status(500).render('matte', { 
       videoId, 
       error: '動画を取得できません', 
       details: error.message 
@@ -80,7 +80,7 @@ app.get('/ll/:id', async (req, res) => {
 
         res.render('listen', { videoData });
    } catch (error) {
-        res.status(500).render('matte'）, { 
+        res.status(500).render('matte', { 
       videoId, 
       error: '動画を取得できません', 
       details: error.message 

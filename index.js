@@ -43,7 +43,7 @@ app.get('/w/:id/5.pdf', async (req, res) => {
         const videoData = response.data;
         console.log(videoData);
 
-        res.render('infowatch', { videoData });
+        res.render('Yukiyoutube-mod', { videoData });
   } catch (error) {
         res.status(500).render('matte', { 
       videoId, 

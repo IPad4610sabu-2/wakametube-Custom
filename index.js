@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //レギュラー
-app.get('/watch?v=/:id/5.pdf', async (req, res) => {
+app.get('/w/:id/5.pdf', async (req, res) => {
   const videoId = req.params.id;
     let cookies = parseCookies(req);
     let wakames = cookies.wakametubeumekomi === 'true';

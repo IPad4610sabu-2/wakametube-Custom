@@ -40,7 +40,7 @@
     <% res.items.forEach(video => { %>
       <% if (video.type === 'video') { %>
         <div class="result-item">
-          <a href="/w/<%= video.id %>/5.pdf">
+          <a href="/watch?v=/<%= video.id %>/5.pdf">
             <img loading="lazy" src="https://i3.ytimg.com/vi/<%= video.id %>/sddefault.jpg" alt="<%= video.title %>">
           </a>
           <p class="channel-name"><a href="/c.pdf/<%= video.author.channelID %>"><%= video.author.name %></a></p>

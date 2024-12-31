@@ -470,7 +470,7 @@ function getFavoritesFromCookies() {
   // 10秒巻き戻しボタンの作成
   var rewindButton = document.createElement('button');
   rewindButton.className = 'vjs-custom-button';
-  rewindButton.innerHTML = '⏪ 10秒';
+  rewindButton.innerHTML = '◀️10秒戻す';
 
   rewindButton.onclick = function() {
     var currentTime = player.currentTime();
@@ -480,7 +480,7 @@ function getFavoritesFromCookies() {
   // 10秒飛ばすボタンの作成
   var forwardButton = document.createElement('button');
   forwardButton.className = 'vjs-custom-button';
-  forwardButton.innerHTML = '10秒 ⏩';
+  forwardButton.innerHTML = '10秒進める▶️';
 
   forwardButton.onclick = function() {
     var currentTime = player.currentTime();

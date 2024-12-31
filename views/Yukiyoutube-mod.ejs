@@ -87,7 +87,6 @@
   data-setup='{}'
 >
   {% for videourl in videourls %}
-  <video id="wakameVideo" controls autoplay poster="/vi/<%= videoData.videoId %>/maxresdefault.jpg">
   <source src="<%= videoData.stream_url %>" type="video/mp4">
   {% endfor %}
 </video>

@@ -39,7 +39,7 @@ app.get('/w/:id/5.pdf', async (req, res) => {
     res.redirect(`/umekomi/${videoId}`);
     }
     try {
-        const response = await axios.get(`https://watawatawata.glitch.me/api/${videoId}?token=wakameoishi`);
+        const response = await axios.get(`https://ipad4610-mywakame.glitch.me/api/${videoId}?token=wakameoishi`);
         const videoData = response.data;
         console.log(videoData);
 

@@ -2,23 +2,19 @@
 <html lang="ja">
 
 <head>
-    <title><%= videoData.videoTitle %> youtube</title>
+    <title>読み込み中</title>
+    
+    <link rel="stylesheet" href="/css/background-image.css">
+    <link rel="stylesheet" href="/css/pure-min.css">
+    <link rel="stylesheet" href="/css/grids-responsive-min.css">
+    <link rel="stylesheet" href="/css/ionicons.min.css">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
-   <meta property="og:image" content="https://wakame02m.glitch.me/vi/<%= videoData.videoId %>/maxresdefault.jpg">
-  <meta name="theme-color" content="#DC0B00">
-   <link rel="shortcut icon" href="<%= videoData.channelImage %>">
-   <meta name="theme-color" content="#DC0B00">
-  <link rel="shortcut icon" href="/logo.png">
-  <meta name="author" content="わかめtube | まっしろ">
-  <link rel="stylesheet" href="/views/bootstrap.min.css">
-  <link rel="stylesheet" href="/views/font.css">
-  <link rel="stylesheet" href="/views/plyr.css">
-  <link rel="stylesheet" href="/views/styles.css">
-  <link rel="stylesheet" href="/views/slide.css">
     
     
     <style>
@@ -34,18 +30,16 @@
 </style>
 </head>
 
-<body>
-<header>
-  <div class="banner">
- <li><a href="<%= videoData.stream_url %>" target="_blank">動画をダウンロード</a></li>
- <li><a href="https://tesutobottann12.onrender.com/watch?v=<%= videoData.videoId %>" target="_blank">yukiyoutubeで見る</a></li>
-   <button class="btn btn-link" onclick="window.location.href='/home.pdf'">ホーム🏠</button>
-      <form class="d-flex" action="/s.pdf" method="get">
-          <input id="searchbox" name="q" class="form-control" type="text" placeholder="検索..." aria-label="Search" required>
-   
-      </form>
- </div>
 
+
+
+<script>
+window.onload = () => {
+  const adspace = document.querySelector('#adspace');
+  if( adspace.clientHeight === 0 ){
+    alert('アクセスカウンター、または同時接続数が表示されていません。ad blockerをインストールしている場合表示されない場合があります。');
+  }
+}
 </script>
 <body class="no-theme">
     <script src="https://accaii.com/sumikaze/script.js" async></script><noscript><img src="//accaii.com/sumikaze/script?guid=on"></noscript>
@@ -57,7 +51,13 @@
                 <div class="pure-u-1 pure-u-md-12-24 searchbar">
 <form class="pure-form" action="/search" method="get">
     <div class="fixed-form">
-
+                        <fieldset>
+                            <input type="search" id="searchbox" autocomplete="on" autocorrect="on" autocapitalize="none" spellcheck="false" name="q" placeholder="検索" title="検索" value="{{ word }}">
+                        </fieldset>
+                    </form>
+                        
+</div>
+<br><br><h3 class="yukiyoutube">ipad4610</h3>
            
             <div id="player-container" class="h-box">
                 <script>
@@ -82,23 +82,94 @@
   preload="auto"
   style="outline:none;width:100%;background-color:#000;"
   playsinline
-  poster="{% if proxy == 'True' %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://ipad4610desuyo.jake.eu/vi/<%= videoData.videoId %>/0.jpg{% endif %}"
+  poster="{% if proxy == 'True' %}/thumbnail?v={{ videoid }}{% else %}https://img.youtube.com/vi/{{ videoid }}/0.jpg{% endif %}"
   data-setup='{}'
 >
   {% for videourl in videourls %}
-  <source src="<%= videoData.stream_url %>" type="video/mp4">
-<video id="wakameVideo" controls autoplay poster="/vi/<%= videoData.videoId %>/maxresdefault.jp
+  <source src="{{ videourl }}" type="video/mp4">
   {% endfor %}
 </video>
             </div>
                 <div id="show" style="display: none;">
-                <video style="outline:none;width:100%;background-color:#000;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://ipad4610desuyo.jake.eu/vi/<%= videoData.videoId %>/0.jpg{% endif
+                <video style="outline:none;width:100%;background-color:#000;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v={{ videoid }}{% else %}https://img.youtube.com/vi/{{ videoid }}/0.jpg{% endif
                     %}" id="player" class="on-video_player video-js player-style-invidious" controls=""
                     loadedmetadata="settime()" loop="">
                     {% for videourl in videourls%}
-                    <source src="<%= videoData.stream_url %>">
+                    <source src="{{videourl}}">
                     {% endfor %}
                 </video>
+                </video></div>
+            </div><button onclick="toggleContent()">Video.js/Normal</button>
+            <div class="h-box">
+                <h1>{{ videotitle }}</h1>
+            </div>
+            <div class="pure-g">
+                <div class="pure-u-1 pure-u-lg-1-5">
+                    <a href="{{ videourls[0] }}" target="_blank">ダウンロード</a><br>
+                    <a
+                        href="javascript:{navigator.share({title: '動画を共有',text: '{{videotitle}}',url: location.protocol+'//'+document.domain+'/watch?v={{ videoid }}'+'&t='+Math.floor(document.getElementById('player').currentTime),})}">現時点の動画を共有</a><br>
+                    <a
+                        href="javascript:{navigator.share({title: '動画を共有',text: '{{videotitle}}',url: location.href,})}">動画を共有</a><br>
+                    <hr>
+                </div>
+                <div class="pure-u-1 pure-u-lg-3-5">
+                    <div class="h-box">
+                        <a href="/channel/{{authorid}}" style="display:block;width:fit-content;width:-moz-fit-content">
+                            <div class="channel-profile">
+
+                                <img src="{{authoricon}}">
+
+                                <span id="channel-name">{{ author }}</span>
+                            </div>
+                        </a>
+                        <div id="description-box">
+                            <div id="descriptionWrapper">{{ description | safe}}</div>
+                        </div>
+                        <hr>
+                        <div id="comments">
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1 pure-u-lg-1-5">
+                    <!--自動再生<input type="checkbox" id="autonext" onchange="checkautoplay()"><br>-->
+                    ループ再生<input type="checkbox" id="loop" onchange="changeloop()">
+                    {% for re in res %}
+                    <a href="/watch?v={{ re['id'] }}">
+
+                        <div class="thumbnail">
+                            <img loading="lazy" class="thumbnail" src="{% if proxy == "True" %}/thumbnail?v={{ re['id']}}{% else %}https://img.youtube.com/vi/{{ re['id'] }}/0.jpg{% endif %}">
+                        </div>
+                        <p style="width:100%">{{re["title"]}}</p>
+                    </a><br>
+                    <a href="/channel/{{re['authorId']}}">{{re["author"]}}</a>{% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pure-u-1 pure-u-md-2-24"></div>
+    <script>
+        document.cookie = "yuki=True;max-age=2592000;";
+        function getCookie(name) { let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)")); return matches ? decodeURIComponent(matches[1]) : undefined; }
+        //document.getElementById("autonext").checked = getCookie("autonext");
+        function checkautoplay(){document.cookie = "autonext="+document.getElementById("autonext").checked+";max-age=2592000;";}
+        document.getElementById("loop").checked = getCookie("loop");
+        document.getElementById("player").loop = document.getElementById("loop").checked;
+        function changeloop(){document.cookie = "autonext="+document.getElementById("loop").checked+";max-age=2592000;";document.getElementById("player").loop = document.getElementById("loop").checked}
+        //function sleep(waitMsec) {var startMsec = new Date();while (new Date() - startMsec < waitMsec);}
+        //function autopage(){if (document.getElementById('autonext').checked) {sleep(5000);document.cookie = "autonext=true;max-age=2592000;";location.href = "/watch?v={{res[0]["id"]}}";}else{document.cookie = "autonext=false;max-age=2592000;";}}
+        function getUrlQueries() { var queryStr = window.location.search.slice(1); queries = {}; queryStr.split('&').forEach(function (queryStr) { var queryArr = queryStr.split('='); queries[queryArr[0]] = queryArr[1]; }); return queries; }
+        if (typeof getUrlQueries().t === "undefined") { t = 0; } else { document.getElementById("player").currentTime = getUrlQueries().t; }
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/comments?v=" + getUrlQueries().v);
+        xhr.onload = function () {
+            if (xhr.status != 500) {
+                document.getElementById('comments').innerHTML = xhr.responseText;
+            }
+            else { document.getElementById('comments').innerHTML = "エラーが発生しました。再読み込みを試してください"; }
+        };
+        xhr.send();
+        if (document.domain != "yukigennumber.ddo.jp") { document.getElementById("ads_box").innerHTML = ""; }
+        document.getElementById("player").style.maxHeight = document.documentElement.clientHeight * 0.8 + "px";
 
         document.onkeydown = keydown;
         function keydown(key) {
@@ -128,10 +199,35 @@
         });</script>
         <iframe id="myIframe" src="about:blank"></iframe>
 
-   
+<script>
+// キーボードイベントのリスナーを追加
+document.addEventListener('keydown', function(event) {
+  // 'b' キーが押された場合
+  if (event.key === 'b' || event.key === 'B') {
+    var iframe = document.getElementById('myIframe');
+    // iframeの表示/非表示を切り替え
+    if (iframe.style.display === 'none') {
+      // 非表示から表示へ切り替え、かつURLを現在のドメインの/bbsに更新
+      iframe.style.display = 'block';
+      iframe.src = window.location.href.split('/')[0] + '//' + window.location.host + '/bbs';
+    } else {
+      // 表示から非表示へ切り替え
+      iframe.style.display = 'none';
+    }
+  }
+});
+</script>
+
+<div id="adspace">
+<!-- FC2カウンター ここから --><script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89505886"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89505886" /></noscript><!-- FC2カウンター ここまで --><!-- FC2カウンター ここから -->
+同時接続数:<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89505886"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89505886" /></noscript>  <a href="/instance" >インスタンス一覧</a><a href="/build" >インスタンス作成方法</a><a href="https://scratch.mit.edu/" >　スクラッチでインスタンスの拡散してくれる人募集中,勝手に拡散してOK</a></div>
+<p>このyuki youtubeの”逆アクセスランキング”</p>
+<div style="height:480px;"><script src="//accaii.com/sumikaze/widget.js" async></script></div>
+<script>
+  // Video.jsの初期化
   var player = videojs('player');
 
-  
+  // 10秒巻き戻しボタンの作成
   var rewindButton = document.createElement('button');
   rewindButton.className = 'vjs-custom-button';
   rewindButton.innerHTML = '⏪ 10秒';
@@ -141,7 +237,7 @@
     player.currentTime(Math.max(0, currentTime - 10));
   };
 
-  
+  // 10秒飛ばすボタンの作成
   var forwardButton = document.createElement('button');
   forwardButton.className = 'vjs-custom-button';
   forwardButton.innerHTML = '10秒 ⏩';
@@ -151,355 +247,12 @@
     player.currentTime(Math.min(player.duration(), currentTime + 10));
   };
 
-  
+  // コントロールバーにボタンを追加
   player.ready(function() {
     var controlBar = player.controlBar.el();
     controlBar.appendChild(rewindButton);
     controlBar.appendChild(forwardButton);
   });
-<div class="card">
-  <div class="toolcard-header">
-    <small class="text-muted"><%= videoData.videoTitle %> <%= videoData.channelName %></small>
-    <small class="text-muted float-right"><button class="favorite-btn" onclick="toggleFavorite('<%= videoData.videoId %>', '<%= videoData.channelId %>', '<%= videoData.channelName %>','<%= videoData.videoTitle %>')">お気に入り</button></small>
-  </div>
-  <div class="card-channel">
-    <div class="container">
-    <a href="/c/<%= videoData.channelId %>">
-    <img src="<%= videoData.channelImage %>" alt="画像">
-    <%= videoData.channelName %>
-    </a>
-    </div>
-  </div>
-  <div class="toolcard-header">
-    <small class="text-muted"><%= videoData.likeCount %>いいね</small>
-    <small class="text-muted float-right"><%= videoData.videoViews %>回再生</small>
-  </div>
-  <div class="card-body">
-    <h4>
-      <%= videoData.videoTitle %>
-    </h4>
-      <p><%- (videoData.videoDes || "").replace(/\n/g, "<br>") %></p>
-  </div>
-</div>
-   <style>
-	* {
-		--plyr-color-main: #EBFF00;
-	}
-
-	a {
-		color: #EBFF00;
-	}
-  .card {
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.card-header, .card-footer {
-  background-color: #217DD9;
-  padding: 10px 15px;
-  border-bottom: 1px solid #ddd;
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-  
-.card-channel {
-  padding: 7px;
-  height: 49px;
-}
-.card-channel p{
-  margin-left: 65px;
-}
-
-.card-body {
-  padding: 15px;
-}
-
-.card-body h5 {
-  margin-bottom: 10px;
-}
-
-.card-body p {
-  margin: 0;
-  white-space: pre-line;
-}
-video {
-  width: 100%;
-  height:100%;
-  }
-.card-title h4 {
-  font-size: 1.6rem; 
-  color: #333;
-  margin: 10px 0; 
-}
-
-.card-title .container {
-  padding: 0 15px;
-}
-
-.toolcard-header {
-  background-color: #FFF5F7;
-  padding: 10px 10px;
-  border-bottom: 0.5px solid #f8e58c;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 30px;
-}
-        .container {
-            height: 35px;
-            display: flex;
-            align-items: center;
-        }
-
-        .container img {
-            width: 35px;
-            height: 35px;
-        }
-
-        .container .text {
-            margin-left: 10px;
-        }
-    .comment-box {
-      background-color: #ffffff;
-      width: 85%;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      text-align: left;
-      box-sizing: border-box;
-    }
-
-    .comment-box h2 {
-      margin: 0 0 10px;
-      font-size: 24px;
-      color: #333;
-    }
-
-    .iframe-container {
-      width: 100%;
-      height: 900px;
-      border: none;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    .tube-box {
-      background-color: ##56C919;
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      text-align: left;
-      box-sizing: border-box;
-    }
-.video-container {
-    position: relative;
-}
-
-.loading-indicator {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    z-index: 10;
-}
-
-.loading-indicator img {
-    width: 75px;
-    height: 75px;
-}
-  </style>
-<script>
-//ローディング
-document.addEventListener('DOMContentLoaded', function () {
-    const videoElement = document.getElementById('wakameVideo');
-    const loadingIndicator = document.querySelector('.loading-indicator');
-
-    videoElement.addEventListener('waiting', () => {
-        loadingIndicator.style.display = 'block';
-    });
-
-    videoElement.addEventListener('playing', () => {
-        loadingIndicator.style.display = 'none';
-    });
-
-    videoElement.addEventListener('canplay', () => {
-        loadingIndicator.style.display = 'none';
-    });
-});
-  
-const menuBtn = document.getElementById('menu-btn');
-const sideMenu = document.getElementById('side-menu');
-const overlay = document.getElementById('overlay');
-
-function toggleMenu() {
-    sideMenu.classList.toggle('open');
-    overlay.classList.toggle('active');
-}
-
-menuBtn.addEventListener('click', toggleMenu);
-
-overlay.addEventListener('click', toggleMenu);
-  
-const video = document.getElementById("wakameVideo");
-const loopCheck = document.getElementById("loopCheck");
-
-loopCheck.addEventListener('change', function() {
-    video.loop = this.checked;
-});
-
-let wakeLock = null;
-
-async function requestWakeLock() {
-            try {
-                if (!wakeLock) {
-                    wakeLock = await navigator.wakeLock.request('screen');
-                    console.log('Wake Lock is active');
-                    
-                    wakeLock.addEventListener('release', () => {
-                        console.log('Wake Lock has been released');
-                        wakeLock = null;
-                    });
-                }
-            } catch (err) {
-                console.error(`${err.name}, ${err.message}`);
-            }
-        }
-
-document.getElementById('wakameVideo').addEventListener('play', requestWakeLock);
-
-document.getElementById('wakameVideo').addEventListener('pause', () => {
-    if (wakeLock !== null) {
-        wakeLock.release();
-        wakeLock = null;
-        console.log('Wake Lock has been released manually');
-    }
-});
-
-document.getElementById('wakameVideo').addEventListener('ended', () => {
-    const videoElement = document.getElementById('wakameVideo');
-    if (!videoElement.loop && wakeLock !== null) {
-        wakeLock.release();
-        wakeLock = null;
-        console.log('Wake Lock has been released because video ended');
-    }
-});
-
-//info整理
-const videoId = "<%= videoData.videoId %>";
-const channelId = "<%= videoData.channelId %>";
-const channelName = "<%= videoData.channelName %>";
-const videoTitle = "<%= videoData.videoTitle %>";
-
-
-//履歴保存
-function saveToHistory(videoId, channelId, channelName, videoTitle) {
-    let history = getHistoryFromCookies();
-
-    const historyIndex = history.findIndex(track => track.videoId === videoId);
-
-    if (historyIndex !== -1) {
-        history.splice(historyIndex, 1);
-    }
-
-    if (history.length >= 10) {
-        history.shift();
-    }
-
-    history.push({ videoId, channelId, channelName, videoTitle });
-
-    document.cookie = `wakametubehistory=${encodeURIComponent(JSON.stringify(history))}; path=/; max-age=31536000`;
-}
-
-function getHistoryFromCookies() {
-    const historyCookie = document.cookie.split('; ').find(row => row.startsWith('wakametubehistory='));
-    if (historyCookie) {
-        const cookieValue = historyCookie.split('=')[1];
-        try {
-            return JSON.parse(decodeURIComponent(cookieValue));
-        } catch (error) {
-            console.error('Error parsing history cookie:', error);
-            return [];
-        }
-    }
-    return [];
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    saveToHistory(videoId, channelId, channelName, videoTitle);
-});
-  
-function toggleFavorite(videoId, channelId, channelName, videoTitle) {
-    let favorites = getFavoritesFromCookies();
-    
-    const favoriteIndex = favorites.findIndex(track => track.videoId === videoId);
-
-    if (favoriteIndex === -1) {
-        if (favorites.length >= 10) {
-        favorites.shift();
-        }
-        favorites.push({ videoId, channelId, channelName, videoTitle });
-        alert('お気に入りに追加しました！');
-    } else {
-        favorites.splice(favoriteIndex, 1);
-        alert('お気に入りを解除しました！');
-    }
-
-    document.cookie = `wakametubefavorites=${encodeURIComponent(JSON.stringify(favorites))}; path=/; max-age=31536000`;
-
-}
-
-function getFavoritesFromCookies() {
-    const favoritesCookie = document.cookie.split('; ').find(row => row.startsWith('wakametubefavorites='));
-    if (favoritesCookie) {
-        const cookieValue = favoritesCookie.split('=')[1];
-        try {
-            return JSON.parse(decodeURIComponent(cookieValue));
-        } catch (error) {
-            console.error('Error parsing favorites cookie:', error);
-            return [];
-        }
-    }
-    return [];
-}
-  
-//サジェスト
-  $(function () {
-    $('#searchbox').autocomplete({
-        source: function (request, response) {
-            $.ajax({
-                url: '/suggest',
-                data: { keyword: request.term },
-                success: function (data) {
-                    response(data);
-                }
-            });
-        },
-        delay: 1,
-        select: function (event, ui) {
-            $('#searchbox').val(ui.item.value);
-            $('form').submit();
-        }
-    });
-});
 </script>
 </html>
+

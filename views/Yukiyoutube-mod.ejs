@@ -86,6 +86,7 @@
   poster="{% if proxy == 'True' %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://hai0hu-waka.cky.cl/vi/<%= videoData.videoId %>/0.jpg{% endif %}"
   data-setup='{}'
 >
+  <video id="wakameVideo" controls autoplay poster="/vi/<%= videoData.videoId %>/maxresdefault.jpg">
   {% for videourl in videourls %}
   <source src="<%= videoData.stream_url %>" type="video/mp4">
   {% endfor %}

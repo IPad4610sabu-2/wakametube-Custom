@@ -55,7 +55,43 @@
       </a>
     </div>
   </div>
-
+  
+ <div class="results">
+  <% if (topVideos && topVideos.length > 0) { %>
+    <% topVideos.forEach(([videoId, { count, videoTitle, channelName, channelId }], index) => { %>
+      <div class="result-item">
+        <a href="/w/<%= videoId %>">
+          <img loading="lazy" src="/vi/<%= videoId %>/mqdefault.jpg" alt="<%= videoTitle %>">
+        </a>
+        <p class="channel-name"><a href="/c/<%= channelId %>"><%= channelName %></a></p>
+        <p class="video-title"><%= videoTitle %></p>
+      </div>
+    <% }); %>
+  <% } else { %>
+    <p></p>
+  <% } %>
+        <div class="result-item">
+          <a href="/w/M7FH1dL51oU/5.pdf">
+            <img loading="lazy" src="/vi/M7FH1dL51oU/mqdefault.jpg" alt="泥の分際で">
+          </a>
+          <p class="channel-name"><a href="/c.pdf/UCB2tP2QfRG7hTra0KTOtTBg">ツユ</a></p>
+          <p class="video-title">ツユ - 泥の分際で私だけの大切を奪おうだなんて MV</p>
+        </div>
+        <div class="result-item">
+          <a href="/w/JQRMzxvhruM/5.pdf">
+            <img loading="lazy" src="/vi/JQRMzxvhruM/mqdefault.jpg" alt="絶気曲">
+          </a>
+          <p class="channel-name"><a href="/c.pdf/UCrReAWkZTd21k2g3CCTdHxQ">春雨</a></p>
+          <p class="video-title">絶妙に気持ち悪い曲</p>
+        </div>
+        <div class="result-item">
+          <a href="/w.pdf/0exu2wsrCQs">
+            <img loading="lazy" src="/vi/0exu2wsrCQs/mqdefault.jpg" alt="通知オン">
+          </a>
+          <p class="channel-name"><a href="/c.pdf/UCIet5zQbQiRR64Sq7NYTxAg">Kiju</a></p>
+          <p class="video-title">Discordの通知音</p>
+        </div>
+  </div>
   <style>
     header {
       background-color: #333;

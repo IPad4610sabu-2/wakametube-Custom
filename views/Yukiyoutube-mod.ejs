@@ -370,7 +370,7 @@ function saveToHistory(videoId, channelId, channelName, videoTitle) {
         history.shift();
     }
 
-    history.push({ videoId/5.pdf, channelId, channelName, videoTitle });
+    history.push({ videoId, channelId, channelName, videoTitle });
 
     document.cookie = `wakametubehistory=${encodeURIComponent(JSON.stringify(history))}; path=/; max-age=31536000`;
 }

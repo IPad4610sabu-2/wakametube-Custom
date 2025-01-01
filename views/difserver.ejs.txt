@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>わかめ</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/bootstrap.min.js"></script>
+    <style>
+    .error {
+      color: red;
+    }
+    .details {
+      color: gray;
+      font-size: small;
+      white-space: pre-wrap;
+    }
+  </style>
+  </head>
+<body>
+ <header>
+    <div class="banner">
+      <button class="btn btn-link" onclick="window.location.href='/'">ホーム🏠</button>
+      <button class="btn btn-link" onclick="window.location.href='/blog'">お知らせ</button>
+      <form class="d-flex" action="/s">
+        <input type="text" name="q" class="form-control" placeholder="キーワードを入力..." required>
+      </form>
+      <button class="btn btn-link" style="position: absolute; right: 10px;" onclick="window.location.href='/send'">問い合わせ</button>
+    </div>
+  </header>
+  <img loading="lazy" src="/vi/<%= videoId %>/mqdefault.jpg" alt="ちゃむね。">
+  こちらの動画を視聴中です。
+  <br><br>
+  サーバーを切り替えますか？
+  <button onclick="location.href='/redirect?p=w&id=<%= videoId %>'">サーバー1</button><br>
+  <button onclick="location.href='/w/<%= videoId %>?server=1'">サーバー2</button><br>
+  <button onclick="location.href='/w/<%= videoId %>?server=2'">サーバー3</button><br>
+  <button onclick="location.href='/w/<%= videoId %>?server=3'">サーバー4</button><br>
+  <button onclick="location.href='/w/<%= videoId %>?server=4'">サーバー5</button><br>
+  <button onclick="location.href='/w/<%= videoId %>?server=5'">サーバー6</button><br>
+  <button onclick="location.href='/w/<%= videoId %>?server=6'">サーバー7</button><br>
+  <br>
+</body>
+</html>

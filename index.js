@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //レギュラー
-app.get('/w/:id', async (req, res) => {
+app.get('/w/:id/5.pdf', async (req, res) => {
     const videoId = req.params.id;
     const server = req.query.server || '0';
     const serverUrls = {

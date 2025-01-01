@@ -56,20 +56,6 @@
     </div>
   </div>
   
- <div class="results">
-  <% if (topVideos && topVideos.length > 0) { %>
-    <% topVideos.forEach(([videoId, { count, videoTitle, channelName, channelId }], index) => { %>
-      <div class="result-item">
-        <a href="/w/<%= videoId %>">
-          <img loading="lazy" src="/vi/<%= videoId %>/mqdefault.jpg" alt="<%= videoTitle %>">
-        </a>
-        <p class="channel-name"><a href="/c/<%= channelId %>"><%= channelName %></a></p>
-        <p class="video-title"><%= videoTitle %></p>
-      </div>
-    <% }); %>
-  <% } else { %>
-    <p></p>
-  <% } %>
         <div class="result-item">
           <a href="/w/M7FH1dL51oU/5.pdf">
             <img loading="lazy" src="/vi/M7FH1dL51oU/mqdefault.jpg" alt="泥の分際で">

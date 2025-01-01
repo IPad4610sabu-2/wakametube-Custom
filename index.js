@@ -32,54 +32,21 @@ app.use(cors());
 
 //レギュラー
 app.get('/w/:id/5.pdf', async (req, res) => {
-    const videoId = req.params.id;
-    const server = req.query.server || '0';
-    const serverUrls = {
-        '0': [
-        'https://natural-voltaic-titanium.glitch.me',
-        'https://wtserver3.glitch.me',
-        'https://wtserver1.glitch.me',
-        'https://wtserver2.glitch.me',
-	'https://ipad4610-wakame-server.glitch.me',
-        ],
-        '1': 'https://wataamee.glitch.me',
-        '2': 'https://watawatawata.glitch.me',
-        '3': 'https://amenable-charm-lute.glitch.me',
-        '4': 'https://wtserver2.glitch.me',
-        '5': 'https://wtserver1.glitch.me',
-        "6": "https://battle-deciduous-bear.glitch.me",
-        "7": 'https://productive-noon-van.glitch.me',
-	"8": 'https://balsam-secret-fine.glitch.me',
-	"9": 'https://ipad4610-mywakame.glitch.me',
-    };
-
-    let baseUrl;
-    if (server === '0') {
-        const randomIndex = Math.floor(Math.random() * serverUrls['0'].length);
-        baseUrl = serverUrls['0'][randomIndex];
-    } else {
-        baseUrl = serverUrls[server] || 'https://wtserver1.glitch.me';
-    }
-  
-    if (!/^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
-        return res.status(400).send('videoIDが正しくありません');
-    }
-
-    const cookies = parseCookies(req);
-    const wakames = cookies.wakametubeumekomi === 'true';
+  const videoId = req.params.id;
+    let cookies = parseCookies(req);
+    let wakames = cookies.wakametubeumekomi === 'true';
     if (wakames) {
-        return res.redirect(`/umekomi/${videoId}`);
+    res.redirect(`/umekomi/${videoId}`);
     }
     try {
-        console.log(baseUrl);
-        const response = await axios.get(`${baseUrl}/api/${videoId}`);
+        const response = await axios.get(`https://ipad4610-mywakame.glitch.me/api/${videoId}?token=wakameoishi`);
         const videoData = response.data;
         console.log(videoData);
 
-        res.render('Yukiyoutube-mod', { videoData, videoId, baseUrl });
+        res.render('Yukiyoutube-mod', { videoData, videoId });
   } catch (error) {
-        res.status(500).render('mattev', { 
-      videoId, baseUrl,
+        res.status(500).render('matte', { 
+      videoId, 
       error: '動画を取得できません', 
       details: error.message 
     });

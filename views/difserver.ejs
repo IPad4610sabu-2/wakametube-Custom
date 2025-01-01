@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サーバーを変更</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/bootstrap.min.js"></script>
+    <style>
+    .error {
+      color: red;
+    }
+    .details {
+      color: gray;
+      font-size: small;
+      white-space: pre-wrap;
+    }
+  </style>
+  </head>
+<body>
+ <header>
+    <div class="banner">
+      <button class="btn btn-link" onclick="window.location.href='/home.pdf'">ホーム🏠</button>
+      <form class="d-flex" action="/s.pdf">
+        <input type="text" name="q" class="form-control" placeholder="検索..." required>
+      </form>
+    </div>
+  </header>
+  <img loading="lazy" src="/vi/<%= videoId %>/mqdefault.jpg" alt="ちゃむね。">
+  こちらの動画を視聴中です。
+  <br><br>
+  サーバーを切り替えますか？
+  <button onclick="location.href='/redirect?p=w&id=<%= videoId %>'">サーバー1</button><br>
+  <button onclick="location.href='/w.pdf/<%= videoId %>?server=1'">サーバー2</button><br>
+  <button onclick="location.href='/w.pdf/<%= videoId %>?server=2'">サーバー3</button><br>
+  <button onclick="location.href='/w.pdf/<%= videoId %>?server=3'">サーバー4</button><br>
+  <button onclick="location.href='/w.pdf/<%= videoId %>?server=4'">サーバー5</button><br>
+  <button onclick="location.href='/w.pdf/<%= videoId %>?server=5'">サーバー6</button><br>
+  <button onclick="location.href='/w.pdf/<%= videoId %>?server=6'">サーバー7</button><br>
+  <button onclick="location.href='/w.pdf/<%= videoId %>?server=7'">サーバー8</button><br>
+  <br>
+</body>
+</html>

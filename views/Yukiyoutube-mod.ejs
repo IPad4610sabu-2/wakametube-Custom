@@ -81,7 +81,7 @@
   class="video-js vjs-default-skin on-video_player player-style-invidious"
   controls
   preload="auto"
-  style="outline:none;width:100%;background-color:#000;"
+  style="outline:none;width:100%;background-color:#432CDC;"
   playsinline
   poster="{% if proxy == 'True' %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://hai0hu-waka.cky.cl/vi/<%= videoData.videoId %>/0.jpg{% endif %}"
   data-setup='{}'
@@ -92,7 +92,7 @@
 </video>
             </div>
                 <div id="show" style="display: none;">
-                <video style="outline:none;width:100%;background-color:#000;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://hai0hu-waka.cky.cl/vi/<%= videoData.videoId %>/0.jpg{% endif
+                <video style="outline:none;width:100%;background-color:#3EE249;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://hai0hu-waka.cky.cl/vi/<%= videoData.videoId %>/0.jpg{% endif
                     %}" id="player" class="on-video_player video-js player-style-invidious" controls=""
                     loadedmetadata="settime()" loop="">
                     <video id="wakameVideo" controls autoplay poster="/vi/<%= videoData.videoId %>/maxresdefault.jpg">

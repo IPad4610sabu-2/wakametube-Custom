@@ -350,7 +350,7 @@ document.getElementById('wakameVideo').addEventListener('ended', () => {
 });
 
 //info整理
-const videoId = "<%= videoData.videoId %>/5.pdf";
+const videoId = "<%= videoData.videoId %>/";
 const channelId = "<%= videoData.channelId %>";
 const channelName = "<%= videoData.channelName %>";
 const videoTitle = "<%= videoData.videoTitle %>";
@@ -370,7 +370,7 @@ function saveToHistory(videoId, channelId, channelName, videoTitle) {
         history.shift();
     }
 
-    history.push({ videoId, channelId, channelName, videoTitle });
+    history.push({ videoId/5.pdf, channelId, channelName, videoTitle });
 
     document.cookie = `wakametubehistory=${encodeURIComponent(JSON.stringify(history))}; path=/; max-age=31536000`;
 }

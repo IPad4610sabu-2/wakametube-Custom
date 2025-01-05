@@ -36,14 +36,12 @@
       <form class="d-flex" action="/s.pdf">
         <input type="text" name="q" class="form-control" placeholder="検索..." required>
       </form>
-
-     <p class="video-title"><%= video.title %></p>
       
     </div>
   </header>
   動画が読み込めない見たいです<br>
   再ロードするか しばらく待ってみてください
-  <p>あなたが読み込もうとした動画 <p class="video-title">><%= videoData.videoTitle %></p>
+  <p>あなたが読み込もうとした動画 <p class="video-title">>(製作中)</p>
   
    <% if (error) { %>
     <div class="error"><%= error %></div>

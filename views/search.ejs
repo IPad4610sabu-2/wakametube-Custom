@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title><%= query %> - youtube</title>
+  <title><%= query %> - (わかめtube-mod)</title>
   <meta name="description" content="まっしろになっていく">
   <meta property="og:title" content="わかめtube">
   <meta property="og:description" content="まっしろになっていく">
@@ -31,7 +31,7 @@
   <header>
     <div class="banner">
       <button class="btn btn-link" onclick="window.location.href='/home.pdf'">ホーム🏠</button>
-      <button class="btn btn-link" onclick="window.location.href='/wakamehistory'">履歴（Internal Server Error となったら何回かリロードしてみて)</button>
+      <button class="btn btn-link" onclick="window.location.href='/wakamehistory'">履歴</button>
       <form class="d-flex" action="/s.pdf" method="get">
           <input id="searchbox" name="q" class="form-control" type="text" placeholder="検索..." aria-label="Search" value="<%= query %>" required>
       </form>

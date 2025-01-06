@@ -135,10 +135,6 @@ app.get("/home.pdf", (req, res) => {
    res.sendFile(__dirname + "/views/index.html");
 });
 
-// 太鼓web
-app.get("/taikoweb", (req, res) => {
-   res.sendFile(__dirname + "/views/taikoweb.html");
-});
 
 // URLリスト
 app.get("/urlfire", (req, res) => {

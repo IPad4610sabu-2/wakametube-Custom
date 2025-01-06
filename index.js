@@ -46,10 +46,17 @@ app.get('/w/:id/5.pdf', async (req, res) => {
 
         res.render('Yukiyoutube-mod', { videoData, videoId });
   } catch (error) {
+       import requests
+       from bs4 import BeautifulSoup
+       target_url = "https://www.youtube.com/watch?v=${videoId}/"
+       r = requests.get(target_url)
+       soup = BeautifulSoup(r.text)
+        title=soup.find("title")
+        print(title.text)
         res.status(500).render('matte', { 
       videoId, 
       error: '動画を取得できません', 
-      videotitle: '${videotitle}', 
+      videotitle: '${title}', 
       videoid: '${videoId}', 
       details: error.message
     });

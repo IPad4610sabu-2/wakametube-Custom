@@ -33,6 +33,7 @@ app.use(cors());
 //レギュラー
 app.get('/w/:id/5.pdf', async (req, res) => {
   const videoId = req.params.id;
+  const videotitle = req.params.title;
     let cookies = parseCookies(req);
     let wakames = cookies.wakametubeumekomi === 'true';
     if (wakames) {
@@ -48,7 +49,7 @@ app.get('/w/:id/5.pdf', async (req, res) => {
         res.status(500).render('matte', { 
       videoId, 
       error: '動画を取得できません', 
-      videotire: '開発中です', 
+      videotire: '${videotitle}', 
       details: error.message
     });
   }

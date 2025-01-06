@@ -48,7 +48,7 @@ app.get('/w/:id/5.pdf', async (req, res) => {
         res.status(500).render('matte', { 
       videoId, 
       error: '動画を取得できません', 
-      videotire: '${videoId}', 
+      videotire: '開発中です', 
       details: error.message
     });
   }

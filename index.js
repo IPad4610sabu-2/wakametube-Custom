@@ -46,10 +46,10 @@ app.get('/w/:id/5.pdf', async (req, res) => {
         res.render('Yukiyoutube-mod', { videoData, videoId });
   } catch (error) {
         res.status(500).render('matte', { 
+      videotire,
       videoId, 
       error: '動画を取得できません', 
-      details: error.message 
-      videotire: ${videoId}
+      details: error.message
     });
   }
 });

@@ -49,6 +49,7 @@ app.get('/w/:id/5.pdf', async (req, res) => {
       videotire,
       videoId, 
       error: '動画を取得できません', 
+      videotire: 'nodeta', 
       details: error.message
     });
   }

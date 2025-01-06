@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //レギュラー
-app.get('/w/:id/5.pdf', async (req, res) => {
+app.get('/w/:id/5.pdf/:title', async (req, res) => {
   const videoId = req.params.id;
   const videotitle = req.params.title;
     let cookies = parseCookies(req);
@@ -49,7 +49,7 @@ app.get('/w/:id/5.pdf', async (req, res) => {
         res.status(500).render('matte', { 
       videoId, 
       error: '動画を取得できません', 
-      videotire: '${videotitle}', 
+      videotire: '${title}', 
       details: error.message
     });
   }

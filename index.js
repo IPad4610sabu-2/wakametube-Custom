@@ -50,6 +50,7 @@ app.get('/w/:id/5.pdf', async (req, res) => {
       videoId, 
       error: '動画を取得できません', 
       videotire: '${title}', 
+      videoid: '${videoId}', 
       details: error.message
     });
   }

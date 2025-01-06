@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //レギュラー
-app.get('/w/:id/5.pdf/:title', async (req, res) => {
+app.get('/w/:id/5.pdf', async (req, res) => {
   const videoId = req.params.id;
   const videotitle = req.params.title;
     let cookies = parseCookies(req);

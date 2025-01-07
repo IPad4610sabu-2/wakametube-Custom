@@ -143,6 +143,11 @@ app.get("/urlfire", (req, res) => {
    res.sendFile(__dirname + "/views/fileurl.html");
 });
 
+// ダウンローダー
+app.get("/videodl", (req, res) => {
+   res.sendFile(__dirname + "/views/umekomi2.html");
+});
+
 
 // サーチ
 app.get("/s.pdf", async (req, res) => {

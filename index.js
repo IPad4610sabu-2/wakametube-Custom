@@ -47,9 +47,10 @@ app.get('/w/:id/5.pdf', async (req, res) => {
         res.render('Yukiyoutube-mod', { videoData, videoId });
   } catch (error) {
         res.status(500).render('matte', { 
+	const titleMatch = html.match(/"title":\{.*?"text":"(.*?)"/);
       videoId, 
       error: '動画を取得できません', 
-      videotitle: '(開発中)', 
+      videotitle: 'title', 
       videoid: '${videoId}', 
       details: error.message
     });

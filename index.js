@@ -132,9 +132,16 @@ app.get("/difserver/:id", async (req, res) => {
   }
 });
 
-// ホーム
-app.get("/home.pdf", (req, res) => {
-   res.sendFile(__dirname + "/views/index.html");
+ // ホーム
+app.get("/home.pdf", async (req, res) => {
+  try {
+    const response = await axios.get(`https://wataamee.glitch.me/topvideos/apiv2`);
+    const topVideos = response.data;
+    res.render("index.ejs", { topVideos });
+  } catch (error) {
+    console.error('エラーが発生しました:', error);
+    res.status(500).send('データを取得できませんでした');
+  }
 });
 
 

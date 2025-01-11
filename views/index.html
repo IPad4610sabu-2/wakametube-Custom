@@ -55,38 +55,40 @@
       </a>
     </div>
   </div>
-  
-         おすすめ動画(最近誰かが再生した動画)
-  
+
+  <div class="results">
+    <% topVideos.forEach(([videoId, { count, videoTitle, channelName, channelId }], index) => { %>
         <div class="result-item">
-          <a href="/w/B5Iwunl9vWo/5.pdf">
-            <img loading="lazy" src="/vi/B5Iwunl9vWo/mqdefault.jpg" alt="泥の分際で">
+          <a href="/w/<%= videoId %>">
+            <img loading="lazy" src="/vi/<%= videoId %>/mqdefault.jpg" alt="<%= videoTitle %>">
           </a>
-          <p class="channel-name"><a href="/c.pdf/UCabDLkTY06_XH8KIsQDVleA">アマナイ【切り抜きch】</a></p>
-          <p class="video-title">【ストグラ】葉風邪ナイの魂天城てんが焦月ツルギのあることに気づいてしまったってやりづらくなるww ※天城てんと葉風邪ナイは別人です。【ストグラ/天城てん/葉風邪ナイ/柊ツルギ/焦月ツルギ】</p>
+          <p class="channel-name"><a href="/c/<%= channelId %>"><%= channelName %></a></p>
+          <p class="video-title"><%= videoTitle %></p>
+        </div>
+   <% }); %>
+        <div class="result-item">
+          <a href="w/M7FH1dL51oU">
+            <img loading="lazy" src="/vi/M7FH1dL51oU/mqdefault.jpg" alt="泥の分際で">
+          </a>
+          <p class="channel-name"><a href="/c/UCB2tP2QfRG7hTra0KTOtTBg">ツユ</a></p>
+          <p class="video-title">ツユ - 泥の分際で私だけの大切を奪おうだなんて MV</p>
         </div>
         <div class="result-item">
-          <a href="/w/afUFP8FsLoM/5.pdf">
-            <img loading="lazy" src="/vi/afUFP8FsLoM/mqdefault.jpg" alt="絶気曲">
+          <a href="/w/JQRMzxvhruM">
+            <img loading="lazy" src="/vi/JQRMzxvhruM/mqdefault.jpg" alt="絶気曲">
           </a>
-          <p class="channel-name"><a href="/c.pdf/UCZzQ4AKDArI8h5mHzMQz73Q">じぇね【Jene】</a></p>
-          <p class="video-title">【ブロスタ】初期アカウントから全キャラカンストするまでいくらかかるの？？【カンスト道】</p>
+          <p class="channel-name"><a href="/c/UCrReAWkZTd21k2g3CCTdHxQ">春雨</a></p>
+          <p class="video-title">絶妙に気持ち悪い曲</p>
         </div>
         <div class="result-item">
-          <a href="/w/Adz5IwhCsQY/5.pdf">
-            <img loading="lazy" src="/vi/Adz5IwhCsQY/mqdefault.jpg" alt="通知オン">
+          <a href="/w/0exu2wsrCQs">
+            <img loading="lazy" src="/vi/0exu2wsrCQs/mqdefault.jpg" alt="通知オン">
           </a>
-          <p class="channel-name"><a href="/c.pdf/UCoZZvM_XSZTUicBQhkCiPtA">あどみん</a></p>
-          <p class="video-title">【ストグラ】ALLINに抗争するかを迫られた！！【GTA5】</p>
-        </div>
-        <div class="result-item">
-          <a href="/w/6JWLltLfhuw/5.pdf">
-            <img loading="lazy" src="/vi/6JWLltLfhuw/mqdefault.jpg" alt="通知オン">
-          </a>
-          <p class="channel-name"><a href="/c.pdf/UCRxPrFmRHsXGWfAyE6oqrPQ">コムドット</a></p>
-          <p class="video-title">【賞金500万円】24時間逆鬼ごっこin韓国-星降る夜に叫ぶ者</p>
+          <p class="channel-name"><a href="/c/UCIet5zQbQiRR64Sq7NYTxAg">Kiju</a></p>
+          <p class="video-title">Discordの通知音</p>
         </div>
   </div>
+         
   <style>
     header {
       background-color: #333;

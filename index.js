@@ -17,7 +17,6 @@ const bodyParser = require('body-parser');
 const { URL } = require('url');
 const bcrypt = require('bcrypt');
 const http = require('http');
-const session = require('express-session');
 
 const limit = process.env.LIMIT || 50;
 
@@ -30,57 +29,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
-app.use(session({
-    secret: "wakameumaiyooooooooo",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { maxAge: 5 * 24 * 60 * 60 * 1000 }
-}));
 
-//ログイン
-// 読み込み時ちぇっく
-app.use((req, res, next) => {
-    if (req.cookies.massiropass !== 'ok' && !req.path.includes('login')) {
-        return res.redirect('/login');
-    } else {
-        next();
-    }
-});
-//ログイン済み？
-app.get('/login/if', async (req, res) => {
-    if (req.cookies.massiropass !== 'ok') {
-        res.render('login', { error: 'ログインしていません。もう一度ログインして下さい' })
-    } else {
-        return res.redirect('/home.pdf');
-    }
-});
-// ログインページ
-app.get('/login', (req, res) => {
-    res.render('login', { error: null });
-});
-// パスワード確認
-app.post('/login', (req, res) => {
-    const password = req.body.password;
-    if (password === 'wakametube-mod' || password === '0129' || password === '4649ne') {
-        res.cookie('massiropass', 'ok', { maxAge: 5 * 24 * 60 * 60 * 1000, httpOnly: true });
-        return res.redirect('/home.pdf');
-    } else {
-        if (password === 'ohana') {
-            return res.redirect('https://ohuaxiehui.webnode.jp');
-        } else {
-            res.render('login', { error: 'パスワードが違います' });
-        }
-    }
-});
-//パスワードを忘れた場合
-app.get('/login/forgot', (req, res) => {
-  res.render(`login/forgot.ejs`);
-});
-//ログアウト
-app.post('/logout', (req, res) => {
-    res.cookie('massiropass', 'false', { maxAge: 0, httpOnly: true });
-    return res.redirect('/login');
-});
 
 //レギュラー
 app.get('/w/:id/5.pdf', async (req, res) => {

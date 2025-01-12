@@ -62,7 +62,7 @@ app.get('/login', (req, res) => {
 // パスワード確認
 app.post('/login', (req, res) => {
     const password = req.body.password;
-    if (password === 'wakametube-mod' || password === 'ゴミじろうしね' || password === 'ロバ西しね') {
+    if (password === 'wakametube-mod' || password === '0129' || password === '4649ne') {
         res.cookie('massiropass', 'ok', { maxAge: 5 * 24 * 60 * 60 * 1000, httpOnly: true });
         return res.redirect('/home.pdf');
     } else {

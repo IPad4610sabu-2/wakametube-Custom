@@ -17,7 +17,6 @@ const bodyParser = require('body-parser');
 const { URL } = require('url');
 const bcrypt = require('bcrypt');
 const http = require('http');
-const session = require('express-session');
 
 const limit = process.env.LIMIT || 50;
 

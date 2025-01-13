@@ -64,7 +64,7 @@ app.post('/login', (req, res) => {
     const password = req.body.password;
     if (password === 'wakametube-mod' || password === 'wakame' || password === 'kamihiyori') {
         res.cookie('massiropass', 'ok', { maxAge: 5 * 24 * 60 * 60 * 1000, httpOnly: true });
-        return res.redirect('/home.pdf');
+        return res.redirect('/home.pdf2');
     } else {
         if (password === 'ohana') {
             return res.redirect('https://ohuaxiehui.webnode.jp');
@@ -199,6 +199,11 @@ app.get("/urlfire", (req, res) => {
 // ダウンローダー
 app.get("/videodl", (req, res) => {
    res.sendFile(__dirname + "/views/umekomi2.html");
+});
+
+// ダウンローダー
+app.get("/home.pdf2", (req, res) => {
+   res.sendFile(__dirname + "/views/Ridairekuto.html");
 });
 
 app.get("/difserver/:id", async (req, res) => {

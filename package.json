@@ -15,6 +15,7 @@
     "cors": "^2.8.5",
     "cookie-parser": "^1.4.6",
     "youtubei.js": "latest",
+    "express-session": "^1.18.1",
     "jsonpath": "^1.0.0",
     "ws": "^8.7.0",
     "soundcloud-downloader": "^1.0.0",

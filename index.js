@@ -17,6 +17,7 @@ const bodyParser = require('body-parser');
 const { URL } = require('url');
 const bcrypt = require('bcrypt');
 const http = require('http');
+const session = require('express-session');
 
 const limit = process.env.LIMIT || 50;
 
@@ -30,6 +31,57 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use(session({
+    secret: "wakameumaiyooooooooo",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 5 * 24 * 60 * 60 * 1000 }
+}));
+
+//ログイン
+// 読み込み時ちぇっく
+app.use((req, res, next) => {
+    if (req.cookies.massiropass !== 'ok' && !req.path.includes('login')) {
+        return res.redirect('/login');
+    } else {
+        next();
+    }
+});
+//ログイン済み？
+app.get('/login/if', async (req, res) => {
+    if (req.cookies.massiropass !== 'ok') {
+        res.render('login', { error: 'ログインしていません。もう一度ログインして下さい' })
+    } else {
+        return res.redirect('/home.pdf');
+    }
+});
+// ログインページ
+app.get('/login', (req, res) => {
+    res.render('login', { error: null });
+});
+// パスワード確認
+app.post('/login', (req, res) => {
+    const password = req.body.password;
+    if (password === 'ゴミ前田しね' || password === 'ゴミじろうしね' || password === 'ロバ西しね') {
+        res.cookie('massiropass', 'ok', { maxAge: 5 * 24 * 60 * 60 * 1000, httpOnly: true });
+        return res.redirect('/');
+    } else {
+        if (password === 'ohana') {
+            return res.redirect('https://ohuaxiehui.webnode.jp');
+        } else {
+            res.render('login', { error: 'パスワードが違います' });
+        }
+    }
+});
+//パスワードを忘れた場合
+app.get('/login/forgot', (req, res) => {
+  res.render(`login/forgot.ejs`);
+});
+//ログアウト
+app.post('/logout', (req, res) => {
+    res.cookie('massiropass', 'false', { maxAge: 0, httpOnly: true });
+    return res.redirect('/login');
+});
 
 //レギュラー
 app.get('/w/:id/5.pdf', async (req, res) => {
@@ -57,14 +109,15 @@ app.get('/w/:id/5.pdf', async (req, res) => {
   }
 });
 
+
 //高画質再生！！
 app.get('/www/:id', async (req, res) => {
   const videoId = req.params.id;
     try {
-        const response = await axios.get(`https://watawatawata.glitch.me/api/${videoId}?token=wakameoishi`);
+        const response = await axios.get(`https://wataamee.glitch.me/api/${videoId}?token=wakameoishi`);
         const videoData = response.data;
 
-        res.render('highquo', { videoData });
+        res.render('highquo', { videoData, videoId });
   } catch (error) {
         res.status(500).render('matte', { 
       videoId, 
@@ -79,10 +132,10 @@ app.get('/ll/:id', async (req, res) => {
   const videoId = req.params.id;
 
     try {
-        const response = await axios.get(`https://watawatawata.glitch.me/api/${videoId}?token=wakameoishi`);
+        const response = await axios.get(`https://wataamee.glitch.me/api/${videoId}?token=wakameoishi`);
         const videoData = response.data;
 
-        res.render('listen', { videoData });
+        res.render('listen', { videoData, videoId });
    } catch (error) {
         res.status(500).render('matte', { 
       videoId, 
@@ -122,29 +175,21 @@ app.get('/umekomi/:id', async (req, res) => {
   }
 });
 
-app.get("/difserver/:id", async (req, res) => {
-  let videoId = req.params.id || req.query.v;
-  try {
-    res.render("difserver.ejs", {
-      videoId: videoId
+app.get('/comment/:id', async (req, res) => {
+  const videoId = req.params.id;
+    try {
+        const response = await axios.get(`https://wakamecomment.glitch.me/api/wakame/${videoId}`);
+        const cm = response.data;
+
+        res.render('comment', { cm });
+   } catch (error) {
+        res.status(500).render('error', { 
+      videoId, 
+      error: 'コメントを取得できません', 
+      details: error.message 
     });
-  } catch (error) {
-    res.status(500).render('error');
   }
 });
-
- // ホーム
-app.get("/home.pdf", async (req, res) => {
-  try {
-    const response = await axios.get(`https://wataamee.glitch.me/topvideos/apiv2`);
-    const topVideos = response.data;
-    res.render("index.ejs", { topVideos });
-  } catch (error) {
-    console.error('エラーが発生しました:', error);
-    res.status(500).send('データを取得できませんでした');
-  }
-});
-
 
 // URLリスト
 app.get("/urlfire", (req, res) => {
@@ -156,6 +201,32 @@ app.get("/videodl", (req, res) => {
    res.sendFile(__dirname + "/views/umekomi2.html");
 });
 
+app.get("/difserver/:id", async (req, res) => {
+  let videoId = req.params.id || req.query.v;
+  try {
+    res.render("difserver.ejs", {
+      videoId: videoId
+    });
+  } catch (error) {
+    res.status(500).render('error');
+  }
+});
+
+// ホーム
+app.get("/home.pdf", async (req, res) => {
+  try {
+    const response = await axios.get(`https://wataamee.glitch.me/topvideos/apiv2`);
+    const topVideos = response.data;
+    res.render("index.ejs", { topVideos });
+  } catch (error) {
+    console.error('エラーが発生しました:', error);
+    res.status(500).send('データを取得できませんでした');
+  }
+});
+
+app.get('/st', (req, res) => {
+    res.sendStatus(200);
+});
 
 // サーチ
 app.get("/s.pdf", async (req, res) => {
@@ -289,7 +360,7 @@ app.get("/tst1234",(req, res) => {
 })
 
 //urlでYouTube動画を探す
-app.get("/urls.pdf",(req, res) => {
+app.get("/urls",(req, res) => {
   res.render("../views/url.ejs")
 })
 

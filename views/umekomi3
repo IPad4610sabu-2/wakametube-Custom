@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登録 on wakametube-mod</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+    <script src="//accaii.com/wakametube/script.js" async></script><noscript><img src="//accaii.com/wakametube/script?guid=on"></noscript>
+</head>
+<body>
+    <iframe src="https://forms.gle/y1gg1ybbG6gCTnUB7" title="NHK"></iframe>
+</body>
+</html>

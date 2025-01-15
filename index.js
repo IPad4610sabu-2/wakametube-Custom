@@ -62,7 +62,7 @@ app.get('/login', (req, res) => {
 // パスワード確認
 app.post('/login', (req, res) => {
     const password = req.body.password;
-    if (password === '942222' || password === '114545' || password === 'tsukasanoomegane' || password === 'no-deta'|| password === 'no-deta'|| password === 'no-deta'|| password === 'no-deta'|| password === 'no-deta') {
+    if (password === '942222' || password === '114545' || password === 'tsukasanoomegane' || password === '56437815'|| password === '2h9 a43 697? D8d 697 7s3 67k8bbs?'|| password === '123'|| password === 'omoro'|| password === 'あいうえお'|| password === 'akuaku'|| password === 'wakame123'|| password === 'kuro273'|| password === 'mariannu'|| password === 'takenoko'|| password === 'izumi'|| password === '111127'|| password === 'no-deta'|| password === 'no-deta'){
         res.cookie('massiropass', 'ok', { maxAge: 5 * 24 * 60 * 60 * 1000, httpOnly: true });
         return res.redirect('/home.pdf2');
     } else {

@@ -3,63 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>パスワードをお忘れの場合</title>
+    <title>登録 on wakametube-mod</title>
     <style>
-        body {
+        body, html {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            height: 100%;
             overflow: hidden;
-            background: #f0f0f0;
-            font-family: Arial, sans-serif;
         }
-        .question {
-            position: absolute;
-            font-size: 20px;
-            pointer-events: none;
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
+    <script src="//accaii.com/wakametube/script.js" async></script><noscript><img src="//accaii.com/wakametube/script?guid=on"></noscript>
 </head>
 <body>
-<script>
-    function createQuestion() {
-        const question = document.createElement('div');
-        question.textContent = '？';
-        question.className = 'question';
-        document.body.appendChild(question);
-        question.style.left = `${Math.random() * window.innerWidth}px`;
-        question.style.top = `${Math.random() * window.innerHeight}px`;
-    }
-
-    function addQuestions() {
-        // 最初に1つ作成
-        createQuestion();
-
-        function increaseQuestions() {
-            const questions = document.querySelectorAll('.question');
-            const currentCount = questions.length;
-
-            if (currentCount < 30) {
-                const numToAdd = Math.min(currentCount * 2, 30 - currentCount);
-                for (let i = 0; i < numToAdd; i++) {
-                    createQuestion();
-                }
-            } else {
-                // 上限に達している場合、ランダムな位置に配置し直す
-                questions.forEach(question => {
-                    question.style.left = `${Math.random() * window.innerWidth}px`;
-                    question.style.top = `${Math.random() * window.innerHeight}px`;
-                });
-            }
-        }
-
-        // 0.2秒後に増やす
-        setInterval(increaseQuestions, 200);
-    }
-
-    // ページが読み込まれた後に開始
-    window.onload = addQuestions;
-</script>
-
+    <iframe src="https://forms.gle/y1gg1ybbG6gCTnUB7" title="NHK"></iframe>
 </body>
 </html>

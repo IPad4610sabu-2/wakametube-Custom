@@ -235,6 +235,12 @@ app.get("/home.pdf2", (req, res) => {
    res.sendFile(__dirname + "/views/Ridairekuto.html");
 });
 
+
+// りんくしゅー
+app.get("/wakamerinnku", (req, res) => {
+   res.sendFile(__dirname + "/views/wakamerinnku.html");
+});
+
 app.get("/difserver/:id", async (req, res) => {
   let videoId = req.params.id || req.query.v;
   try {

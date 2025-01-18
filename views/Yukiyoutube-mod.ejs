@@ -101,7 +101,7 @@
                 <video style="outline:none;width:100%;background-color:#DC0B00;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://img.youtube.com/vi/<%= videoData.videoId %>/0.jpg{% endif
                     %}" id="player" class="on-video_player video-js player-style-invidious" controls=""
                     loadedmetadata="settime()" loop="">
-                    <video id="wakameVideo" controls autoplay poster="/vi/<%= videoData.videoId %>/maxresdefault.jpg">
+                    <video id="wakameVideo" controls autoplay poster="/vi/<%= videoData.videoId %>/hqdefault.jpg">
                     {% for videourl in videourls%}
                     <source src="<%= videoData.stream_url %>">
                     {% endfor %}

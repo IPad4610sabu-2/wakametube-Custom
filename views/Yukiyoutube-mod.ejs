@@ -89,7 +89,7 @@
   preload="auto"
   style="outline:none;width:100%;background-color:#DC0B00;"
   playsinline
-  poster="{% if proxy == 'True' %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://hai0hu-waka.cky.cl/vi/<%= videoData.videoId %>/0.jpg{% endif %}"
+  poster="{% if proxy == 'True' %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://img.youtube.com/vi/<%= videoData.videoId %>/0.jpg{% endif %}"
   data-setup='{}'
 >
   {% for videourl in videourls %}
@@ -98,7 +98,7 @@
 </video>
             </div>
                 <div id="show" style="display: none;">
-                <video style="outline:none;width:100%;background-color:#DC0B00;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://hai0hu-waka.cky.cl/vi/<%= videoData.videoId %>/0.jpg{% endif
+                <video style="outline:none;width:100%;background-color:#DC0B00;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://img.youtube.com/vi/<%= videoData.videoId %>/0.jpg{% endif
                     %}" id="player" class="on-video_player video-js player-style-invidious" controls=""
                     loadedmetadata="settime()" loop="">
                     <video id="wakameVideo" controls autoplay poster="/vi/<%= videoData.videoId %>/maxresdefault.jpg">

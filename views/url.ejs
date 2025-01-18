@@ -2,19 +2,17 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>by4610yt</title>
+    <title>url on wakametube-mod</title>
     <link rel="stylesheet" href="/css/font.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   <header>
     <div class="banner">
-      <button class="btn btn-link" onclick="window.location.href='/'">ホーム🏠</button>
-      <button class="btn btn-link" onclick="window.location.href='/blog'">お知らせ</button>
+      <button class="btn btn-link" onclick="window.location.href='/home.pdf'">ホーム🏠</button>
       <form class="d-flex" action="/s">
-        <input type="text" name="q" class="form-control" placeholder="キーワードを入力..." required>
+        <input type="text" name="q" class="form-control" placeholder="検索..." required>
       </form>
-      <button class="btn btn-link" style="position: absolute; right: 10px;" onclick="window.location.href='/send'">問い合わせ</button>
     </div>
   </header>
   <br><br>
@@ -22,7 +20,6 @@
   <form id="urlForm2">
     <input type="text" id="youtubeUrl" placeholder="YouTubeのURLを入力..." required>
     <button type="submit" name="action" value="watch">再生！</button>
-    <button type="submit" name="action" value="comment">コメントのみを表示</button>
     <br><br>
 </form>
 
@@ -34,7 +31,7 @@
         if (videoId) {
             const action = event.submitter.value;
             if (action === 'watch') {
-                window.location.href = `/w/${videoId}`;
+                window.location.href = `/w/${videoId}/5.pdf`;
             } else if (action === 'comment') {
                 window.location.href = `/tool/n/comment/${videoId}`;
             } else {

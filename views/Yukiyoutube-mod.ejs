@@ -112,7 +112,7 @@
                 <div class="card">
   <div class="toolcard-header">
     <small class="text-muted"><%= videoData.videoTitle %> <%= videoData.channelName %></small>
-    <small class="text-muted float-right"><button class="favorite-btn" onclick="toggleFavorite('<%= videoData.videoId %>', '<%= videoData.channelId %>', '<%= videoData.channelName %>','<%= videoData.videoTitle %>')">お気に入り</button></small>
+    <small class="text-muted float-right"><button class="favorite-btn" onclick="toggleFavorite('<%= videoData.videoId %>', '<%= videoData.channelId %>', '<%= videoData.channelName %>','<%= videoData.videoTitle %>')">お気に入り</button></small> 
   </div>
   <div class="card-channel">
     <div class="container">
@@ -139,7 +139,7 @@
       <iframe src="/comment/<%= videoId %>" scrolling="yes"></iframe>
     </div>
   </div>
-  <div class="tube-box">
+<div class="tube-box">
     <div class="iframe-container">
 <iframe src="/videores/<%= videoId %>" scrolling="yes"></iframe>
     </div>
@@ -252,7 +252,7 @@ video {
 
     .iframe-container {
       width: 100%;
-      height: 900px;
+      height: 0px;
       border: none;
       overflow: hidden;
       border-radius: 10px;

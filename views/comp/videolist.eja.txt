@@ -1,0 +1,51 @@
+<% if (!video) return; %>
+<% if (video.type.endsWith("Video")) { %>
+  <div class="rVideo">
+    <a href="/w/<%= video.id %>" target="_top">
+      <img loading="lazy" src="/vi/<%= video.id %>/mqdefault.jpg" />
+    </a>
+    <div class="rVideoInfo">
+      <h4><a href="/w/<%= video.id %>" target="_top"><%= video.title.text %></a></h4>
+      <% if (video.author) { %>
+        <span class="rVideoAuthor">
+        <a href="/c/<%= video.author.id %>" target="_top"><%= video.author.name %></a></span>
+      <% } %>
+      <br>
+      <small><%= video.published.text %> • Duration: <b><%= video.duration.text %></b></small><br>
+      <% video.badges?.forEach(badge => { %>
+        <small class="border"><%= badge.label %></small>
+      <% }); %>
+      <small><%= video.view_count?.text || video.short_view_count?.text %></small>
+    </div>
+  </div>
+<% } else if (video.type.endsWith("Playlist")) { %>
+  <div class="rVideo">
+    <a href="/p/<%= video.id %>"><img loading="lazy" src="/vi/<%= video?.endpoint?.payload?.videoId || video.first_videos[0]?.id %>/mqdefault.jpg"/></a>
+    <div class="rVideoInfo">
+      <h4><a href="/w/<%= video.id %>" target="_top"><%= video.title.text %></a></h4>
+      <% if (video.author) { %>
+        <span class="rVideoAuthor"><a href="/c/<%= video.author.id %>" target="_top"><%= video.author.name %> <%= video.author.is_verified ? "<small class=\"border\">Verified</small>" : "" %></a></span><br>
+      <% } %>
+      <small>Playlist: <b><%= video.video_count?.text %></b></small><br>
+      <% video.badges?.forEach(badge => { %>
+        <small class="border"><%= badge.label %></small>
+      <% }); %>
+    </div>
+  </div>
+<% } else if (video.type.endsWith("Channel")) { %>
+  <div class="rVideo" style="margin-top: 2px;">
+    <a href="/c/<%= video.author.id %>" target="_top"><img loading="lazy" src="/yt3<%- (new URL(video.author.thumbnails[0].url.startsWith("http") ? video.author.thumbnails[0].url : "https:" + video.author.thumbnails[0].url)).pathname %>" style="padding: 25px; width: 90px;"/></a>
+    <div class="rVideoInfo">
+      <h2><a href="/c/<%= video.author.id %>" target="_top"><%= video.author.name %></a></h2>
+      <span><%= video.description_snippet?.text %></span><br>
+      <small><b><%= video.subscriber_count?.text %></b> • <%= video.videos?.text || video.video_count?.text %></small>
+    </div>
+  </div>
+<% } else if (video.type === "Shelf") { %>
+  <details class="shelf border" style="margin-top: 8px;" open>
+    <summary class="shelfTitle"><%= video.title.text %></summary>
+    <% video.content?.items?.forEach(video => { %>
+      <%- include("videolist.ejs", { video }); %>
+    <% }); %>
+  </details>
+<% } %>

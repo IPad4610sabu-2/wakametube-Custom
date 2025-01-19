@@ -94,7 +94,7 @@
       <div class="comment-container">
         <img loading="lazy" src="<%= CommentThread.comment?.author.thumbnails[0].url %>" />
         <div class="rVideoInfo">
-          <h4><a href="/c/<%= CommentThread.comment?.author.id %>" target="_blank"><%= CommentThread.comment?.author.name || "(Unable to parse author name)" %></a></h4>
+          <h4><a href="/c.pdf/<%= CommentThread.comment?.author.id %>" target="_blank"><%= CommentThread.comment?.author.name || "(Unable to parse author name)" %></a></h4>
           <pre><%= CommentThread.comment?.content.text || "(Unable to parse comment)" %></pre>
         </div>
       </div>

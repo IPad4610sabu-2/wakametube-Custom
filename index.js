@@ -220,6 +220,24 @@ app.get('/comment/:id', async (req, res) => {
   }
 });
 
+app.get("/videores/:id", async (req, res) => {
+  let videoId = req.params.id || req.query.v;
+  try {
+    const response = await axios.get(`https://roan-ivory-elephant.glitch.me/api/wakamer/${videoId}`);
+    const info = response.data.info;
+    const captions = response.data.info;
+    res.render("resvideo.ejs", {
+      videoId: videoId, info, captions
+    });
+  } catch (error) {
+        res.status(500).render('error', { 
+      videoId, 
+      error: '関連動画を取得できません', 
+      details: error.message 
+    });
+  }
+});
+
 // URLリスト
 app.get("/urlfire", (req, res) => {
    res.sendFile(__dirname + "/views/fileurl.html");

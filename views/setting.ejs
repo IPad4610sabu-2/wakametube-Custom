@@ -9,33 +9,24 @@
   <link rel="stylesheet" href="/css/styles.css">
   <script src="/js/bootstrap.min.js"></script>
 </head>
+
+<div class="fu" id="border">
+        <b><p id="realtime"></p></b></div>
+</div>
+    <script id="_wauwnn">var _wau = _wau || []; _wau.push(["classic", "4fc3tv76l2", "wnn"]);</script> <script async src="//waust.at/c.js"></script>
 <body>
    <header>
     <div class="banner">
-      <button class="btn btn-link" onclick="window.location.href='/'">ホーム🏠</button>
-      <button class="btn btn-link" onclick="window.location.href='/blog'">お知らせ</button>
+      <button class="btn btn-link" onclick="window.location.href='/home.pdf'">ホーム🏠</button>
       <!-- 他のボタンもここに追加できます -->
-      <form class="d-flex" action="/s">
-        <input type="text" name="q" class="form-control" placeholder="キーワードを入力..." required>
+      <form class="d-flex" action="/s.pdf">
+        <input type="text" name="q" class="form-control" placeholder="検索..." required>
       </form>
-      <button class="btn btn-link" style="position: absolute; right: 10px;" onclick="window.location.href='/send'">問い合わせ</button>
     </div>
   </header>
   <h1>
     設定
   </h1>
-    <div class="container">
-        <h1>Sモード</h1>
-        <p class="description">検索時のサムネ画像取得速度をアップします。ただし、一部地域ではサムネ画像を読み込めなくなります。<br>
-          簡単に言うと、下のURLに入れる人は使えるし、入れない人は使えません()<br>
-          <a href="https://i3.ytimg.com/vi/d3UTywBDSW4/maxresdefault.jpg" target="_blank">https://i3.ytimg.com/vi/d3UTywBDSW4/maxresdefault.jpg</a></p>
-        <form action="/setting" method="post">
-            <div class="switch">
-                <input type="checkbox" id="wakames" name="wakames" <%= wakames ? 'checked' : '' %>>
-                <label for="wakames" class="slider"></label>
-            </div>
-            <button type="submit" class="save-button">設定を保存</button>
-        </form>
     </div>
 <br><br>
     <div class="container">
@@ -137,4 +128,5 @@ input:checked + .slider:before {
 
   </style>
 </body>
+<script src="//accaii.com/wakametube/script.js" async></script><noscript><img src="//accaii.com/wakametube/script?guid=on"></noscript>
 </html>

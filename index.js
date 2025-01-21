@@ -248,11 +248,15 @@ app.get("/videodl", (req, res) => {
    res.sendFile(__dirname + "/views/umekomi2.html");
 });
 
-// ダウンローダー
+// 偽 ブロックされました
 app.get("/home.pdf2", (req, res) => {
    res.sendFile(__dirname + "/views/Ridairekuto.html");
 });
 
+// yukiyoutube
+app.get("/yuki", (req, res) => {
+   res.sendFile(__dirname + "/views/umekomi3.html");
+});
 
 // りんくしゅー
 app.get("/wakamerinnku", (req, res) => {

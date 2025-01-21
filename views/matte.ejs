@@ -40,9 +40,8 @@
       
     </div>
   </header>
-            <p>動画が読み込めないみたいです</div>
-  再ロードするか しばらく待ってみてください また存在しないidの可能性があります
-   <button class="btn btn-link" onclick="window.location.href='/videodl'">またこちらを利用してみてください</button>
+            <p>動画を取得できません</div>
+   <button class="btn btn-link" onclick="window.location.href='/videodl'">downloaderから視聴</button>
   
    <% if (error) { %>
     <div class="error"><%= error %></div>
@@ -53,7 +52,7 @@
     <br><br><br>
   <p>
 
-    あなたが読み込もうとした動画のサムネ↓ 
+    <p>あなたが読み込もうとした動画のサムネ↓</div>
 <img src="https://img.youtube.com/vi/<%= videoId %>/hqdefault.jpg"></h3>
   </p>
 <script src="//accaii.com/wakametube/script.js" async></script><noscript><img src="//accaii.com/wakametube/script?guid=on"></noscript>

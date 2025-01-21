@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title><%= videoTitle %></title>
+  <title>埋め込み <%= videoTitle %> (<%= channelName %>) (わかめtube-mod)</title>
   <meta name="description" content="わかめ">
   <meta property="og:site_name" content="わかめtube | まっしろ">
   <meta name="theme-color" content="#ff8181">
@@ -27,27 +27,19 @@
    <button class="btn btn-link" onclick="window.location.href='/'">ホーム🏠</button>
    <button class="btn btn-link" onclick="window.location.href='/send'">問い合わせ</button>
   <button class="btn btn-link" onclick="window.location.href='/blog/help'">ヘルプ</button>
-      <form class="d-flex" action="/s" method="get">
+      <form class="d-flex" action="/s.pdf" method="get">
           <input id="searchbox" name="q" class="form-control" type="text" placeholder="キーワードを入力..." aria-label="Search" required>
       </form>
    <button class="btn btn-link" id="menu-btn" style="position: absolute; right: 10px;">ツール</button>
  </div>
 </header>
-<nav id="side-menu" class="side-menu">
-    <ul>
-        <li><a href="/vi/<%= videoId %>/maxresdefault.jpg">サムネイルをダウンロード</a></li>
-        <li><a href="/wakameokini">お気に入りへ移動</a></li>
-        <li><a href="/wakamehistory">再生履歴</a></li>
-        <li><a href="/blog/up" target="_blank">アップデートを確認</a></li>
-    </ul>
-</nav>
 <div id="overlay" class="overlay"></div>
 <div class="vcard">
-<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/<%= videoId %>" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="100%" height="100%" src="https://www.youtubeeducation.com/embed/<%= videoId %>" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
 <div class="card">
   <div class="card-channel">
-    <a href="/c/<%= channelId %>">
+    <a href="/c.pdf/<%= channelId %>">
     <div class="container">
     <img src="<%= channelImage %>" alt="画像">
     <%= channelName %></a>

@@ -40,7 +40,9 @@
       
     </div>
   </header>
-            <p>動画を取得できません</div>
+            <p>error</div>
+           <p>原因としてあげられるもの↓</div>
+          <p>普通に取得できない 年齢確認のある動画 存在しないid など</div>
    <button class="btn btn-link" onclick="window.location.href='/videodl'">downloaderから視聴</button>
   
    <% if (error) { %>
@@ -52,7 +54,7 @@
     <br><br><br>
   <p>
 
-    <p>あなたが読み込もうとした動画のサムネ↓</div>
+    <p>あなたが読み込もうとした動画のサムネ</div>
 <img src="https://img.youtube.com/vi/<%= videoId %>/hqdefault.jpg"></h3>
   </p>
 <script src="//accaii.com/wakametube/script.js" async></script><noscript><img src="//accaii.com/wakametube/script?guid=on"></noscript>

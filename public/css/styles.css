@@ -99,7 +99,7 @@ footer {
 }
 
 .result-item {
-  width: 300px;
+  width: 170px;
   border: 1px solid #F20F3B;
   border-radius: 10px;
   padding: 10px;
@@ -115,7 +115,7 @@ footer {
 
 .result-item img {
   width: 100%;
-  height: 90px; /* Adjusted height */
+  height: 130px; /* Adjusted height */
   border-bottom: 1px solid #F20F3B;
   margin-bottom: 10px;
   border-radius: 10px 10px 0 0;

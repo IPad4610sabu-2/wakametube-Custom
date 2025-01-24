@@ -42,15 +42,24 @@
 <body>
 <header>
   <div class="banner">
- <li><a href="<%= videoData.stream_url %>" target="_blank">動画をダウンロード</a></li>
- <button class="btn btn-link" onclick="window.location.href='/wakamerinnku'">別のわかめtube-modを使用</button>
    <button class="btn btn-link" onclick="window.location.href='/home.pdf'">ホーム🏠</button>
       <form class="d-flex" action="/s.pdf" method="get">
           <input id="searchbox" name="q" class="form-control" type="text" placeholder="検索..." aria-label="Search" required>
-   
       </form>
+<button class="btn btn-link" id="menu-btn" style="position: absolute; right: 10px;">いろいろ</button>
  </div>
 </header>
+
+<nav id="side-menu" class="side-menu">
+    <ul>
+        <li><a href="<%= videoData.stream_url %>" target="_blank">動画をダウンロード</a></li>
+        <li><a href="/ll/<%= videoData.videoId %>">音のみで再生する</a></li>
+        <li><a href="/www/<%= videoData.videoId %>">高画質で再生する</a></li>
+        <li><a href="/vi/<%= videoData.videoId %>/maxresdefault.jpg" target="_blank">サムネイルをダウンロード</a></li>
+        <li><a href="/tubo">ターボワープで見る...</a></li>
+    </ul>
+</nav>
+<div id="overlay" class="overlay"></div>
 
 <h3 class="yukiyoutube">wakametube-mod</h3>
 

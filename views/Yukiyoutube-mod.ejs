@@ -53,8 +53,6 @@
 <nav id="side-menu" class="side-menu">
     <ul>
         <li><a href="<%= videoData.stream_url %>" target="_blank">動画をダウンロード</a></li>
-        <li><a href="/ll/<%= videoData.videoId %>">音のみで再生する</a></li>
-        <li><a href="/www/<%= videoData.videoId %>">高画質で再生する</a></li>
         <li><a href="/vi/<%= videoData.videoId %>/maxresdefault.jpg" target="_blank">サムネイルをダウンロード</a></li>
         <li><a href="/tubo">ターボワープで見る...</a></li>
     </ul>
@@ -110,8 +108,8 @@
                 <video style="outline:none;width:100%;background-color:#DC0B00;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://img.youtube.com/vi/<%= videoData.videoId %>/0.jpg{% endif
                     %}" id="player" class="on-video_player video-js player-style-invidious" controls=""
                     loadedmetadata="settime()" loop="">
-                    <video id="wakameVideo" controls autoplay poster="/vi/<%= videoData.videoId %>/hqdefault.jpg">
                     {% for videourl in videourls%}
+                    <video id="wakameVideo" controls autoplay poster="/vi/<%= videoData.videoId %>/maxresdefault.jpg">
                     <source src="<%= videoData.stream_url %>">
                     {% endfor %}
                 </video>
@@ -149,6 +147,7 @@
     </div>
   </div>
 <div class="tube-box">
+   <h2>関連動画</h2>
     <div class="iframe-container">
 <iframe src="/videores/<%= videoId %>" scrolling="yes"></iframe>
     </div>

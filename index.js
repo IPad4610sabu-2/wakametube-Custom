@@ -174,6 +174,24 @@ app.get('/ll/:id', async (req, res) => {
   }
 });
 
+//yukiyoutube風再生
+app.get('/yuki-y/:id', async (req, res) => {
+  const videoId = req.params.id;
+
+    try {
+        const response = await axios.get(`https://wataamee.glitch.me/api/${videoId}?token=wakameoishi`);
+        const videoData = response.data;
+
+        res.render('yuki-y-watch', { videoData, videoId });
+   } catch (error) {
+        res.status(500).render('matte', { 
+      videoId, 
+      error: '動画を取得できません', 
+      details: error.message 
+    });
+  }
+});
+
 //埋め込み再生
 app.get('/umekomi/:id', async (req, res) => {
   let videoId = req.params.id;

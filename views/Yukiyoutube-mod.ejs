@@ -110,6 +110,7 @@
                     loadedmetadata="settime()" loop="">
                     {% for videourl in videourls%}
                     <video id="wakameVideo" controls autoplay poster="/vi/<%= videoData.videoId %>/maxresdefault.jpg">
+                    <img src="https://img.youtube.com/vi/<%= videoData.videoId %>/hqdefault.jpg"></h3>
                     <source src="<%= videoData.stream_url %>">
                     {% endfor %}
                 </video>

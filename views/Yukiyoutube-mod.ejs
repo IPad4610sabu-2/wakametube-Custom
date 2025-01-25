@@ -551,12 +551,6 @@ function getFavoritesFromCookies() {
   // Video.jsの初期化
   var player = videojs('player');
 
-// 2倍速ボタン
-    var speedButton = document.getElementById('speedButton');
-    speedButton.onclick = function() {
-      player.playbackRate(2);
-    };
-
   // 10秒巻き戻しボタンの作成
   var rewindButton = document.createElement('button');
   rewindButton.className = 'vjs-custom-button';

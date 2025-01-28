@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>channelお気に入り</title>
+  <meta name="description" content="まっしろになっていく">
+  <meta property="og:title" content="わかめtube">
+  <meta property="og:description" content="まっしろになっていく">
+  <meta property="og:site_name" content="わかめtube | まっしろ">
+  <meta property="og:image" content="https://uploads.scratch.mit.edu/get_image/project/1068152212_144x144.png">
+  <meta name="theme-color" content="#4C43B3">
+  <link rel="shortcut icon" href="https://uploads.scratch.mit.edu/get_image/project/1068152212_144x144.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://uploads.scratch.mit.edu/get_image/project/1068152212_144x144.png">
+  <meta name="author" content="わかめtube | まっしろ">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/font.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/slide.css">
+  <script src="/js/bootstrap.min.js"></script>
+</head>
+
+<div class="fu" id="border">
+        <b><p id="realtime"></p></b></div>
+</div>
+    <script id="_wauwnn">var _wau = _wau || []; _wau.push(["classic", "4fc3tv76l2", "wnn"]);</script><script async src="//waust.at/c.js"></script>
+
+<body>
+  <header>
+    <div class="banner">
+      <button class="btn btn-link" onclick="window.location.href='/home.pdf'">ホーム🏠</button>
+      <form class="d-flex" action="/s.pdf">
+        <input type="text" name="q" class="form-control" placeholder="channelお気に入り" required>
+      </form>
+      <button class="btn btn-link" id="menu-btn" style="position: absolute; right: 10px;">ツール</button>
+    </div>
+  </header>
+  <nav id="side-menu" class="side-menu">
+    <ul>
+        <li><a href="/">なんもないよ❤️</a></li>
+    </ul>
+</nav>
+<div id="overlay" class="overlay"></div>
+  <div class="results">
+    <% if (tracks && tracks.length > 0) { %>
+      <% tracks.reverse().forEach(track => { %>
+        <div class="result-item">
+          <a href="/w/<%= track.videoId %>/5.pdf">
+            <img loading="lazy" src="/vi/<%= track.videoId %>/mqdefault.jpg">
+          </a>
+          <p class="channel-name"><a href="/c.pdf/<%= track.channelId %>"><%= track.channelName %></a></p>
+          <p class="video-title"><%= track.videoTitle %></p>
+          <p class="video-description"></p>
+          <p class="video-meta"></p>
+          </div>
+            <% }) %>
+    <% } else { %>
+        <p>お気に入り登録されたチャンネルはありません</p>
+    <% } %>
+  </div>
+  <style>
+    .pagination {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    a {
+      color: #ff8181;
+    }
+  </style>
+<script>
+const menuBtn = document.getElementById('menu-btn');
+const sideMenu = document.getElementById('side-menu');
+const overlay = document.getElementById('overlay');
+
+function toggleMenu() {
+    sideMenu.classList.toggle('open');
+    overlay.classList.toggle('active');
+}
+
+menuBtn.addEventListener('click', toggleMenu);
+
+overlay.addEventListener('click', toggleMenu);</script>
+</body>
+<script src="//accaii.com/wakametube/script.js" async></script><noscript><img src="//accaii.com/wakametube/script?guid=on"></noscript>
+</html>

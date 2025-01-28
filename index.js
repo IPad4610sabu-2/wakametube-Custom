@@ -770,7 +770,7 @@ app.get('/wakamc/f', (req, res) => {
     res.render('wakamemusicf', { favorites: favorites });
 });
 
-//お気に入り
+//videoお気に入り
 app.get('/wakameokini', (req, res) => {
     let favorites = [];
 
@@ -787,6 +787,25 @@ app.get('/wakameokini', (req, res) => {
     }
     res.render('wakameokiniiri', { tracks: favorites });
 });
+
+//channelお気に入り(
+app.get('/zyunnbityuu', (req, res) => {
+    let favorites = [];
+
+    const cookie = req.headers.cookie
+        .split('; ')
+        .find(row => row.startsWith('wakametubefavorites='));
+
+    if (cookie) {
+        try {
+            favorites = JSON.parse(decodeURIComponent(cookie.split('=')[1]));
+        } catch (error) {
+            console.error('Error parsing cookie:', error);
+        }
+    }
+    res.render('channel-okini', { channoki: favorites });
+});
+
 
 
 //履歴

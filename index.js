@@ -93,7 +93,6 @@ app.get('/w/:id/5.pdf', async (req, res) => {
         'https://wtserver3.glitch.me',
         'https://wtserver1.glitch.me',
         'https://wtserver2.glitch.me',
-	'https://ipad4610-mywakame.glitch.me',
         ],
         '1': 'https://wataamee.glitch.me',
         '2': 'https://watawatawata.glitch.me',

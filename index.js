@@ -280,6 +280,11 @@ app.get("/wakamerinnku", (req, res) => {
    res.sendFile(__dirname + "/views/wakamerinnku.html");
 });
 
+// 質問
+app.get("/docmento", (req, res) => {
+   res.sendFile(__dirname + "/views/doc.html");
+});
+
 app.get("/difserver/:id", async (req, res) => {
   let videoId = req.params.id || req.query.v;
   try {

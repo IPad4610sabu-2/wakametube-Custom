@@ -285,6 +285,11 @@ app.get("/docmento", (req, res) => {
    res.sendFile(__dirname + "/views/doc.html");
 });
 
+// 警告画面
+app.get("/home.pdf3", (req, res) => {
+   res.sendFile(__dirname + "/views/keikoku.html");
+});
+
 app.get("/difserver/:id", async (req, res) => {
   let videoId = req.params.id || req.query.v;
   try {

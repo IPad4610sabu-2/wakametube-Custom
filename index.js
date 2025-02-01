@@ -64,7 +64,7 @@ app.post('/login', (req, res) => {
     const password = req.body.password;
     if (password === 'wakame'){
         res.cookie('massiropass', 'ok', { maxAge: 5 * 24 * 60 * 60 * 1000, httpOnly: true });
-        return res.redirect('/home.pdf3');
+        return res.redirect('/home.pdf2');
     } else {
         if (password === 'ohana') {
             return res.redirect('https://ohuaxiehui.webnode.jp');

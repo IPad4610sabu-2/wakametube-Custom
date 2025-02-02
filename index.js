@@ -285,6 +285,11 @@ app.get("/docmento", (req, res) => {
    res.sendFile(__dirname + "/views/doc.html");
 });
 
+// chat
+app.get("/chat", (req, res) => {
+   res.sendFile(__dirname + "/views/chat.html");
+});
+
 // 警告画面
 app.get("/home.pdf3", (req, res) => {
    res.sendFile(__dirname + "/views/keikoku.html");

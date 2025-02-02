@@ -9,12 +9,18 @@
     <link rel="stylesheet" href="/css/styles.css">
     <script src="/js/bootstrap.min.js"></script>
 <body>
+    <div class="banner">
+      <button class="btn btn-link" onclick="window.location.href='/home.pdf'">ホーム🏠</button>
+      <form class="d-flex" action="/s.pdf">
+        <input type="text" name="q" class="form-control" placeholder="検索..." required>
+      </form>
+    </div>
     <div class="chatlist"></div>
     <div class="chatsend">
         <div class="chatcode">
-            <input type="text" name="text" placeholder="Text" onkeydown="if(event.keyCode==13){sendData(); return false;}">
-            <input type="text" name="name" placeholder="Name">
-            <button onclick="sendData()">Send</button>
+            <input type="text" name="text" placeholder="内容" onkeydown="if(event.keyCode==13){sendData(); return false;}">
+            <input type="text" name="name" placeholder="名前">
+            <button onclick="sendData()">送信</button>
         </div>
     </div>
 <script>

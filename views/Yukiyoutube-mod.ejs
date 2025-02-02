@@ -153,6 +153,14 @@
 <iframe src="/videores/<%= videoId %>" scrolling="yes"></iframe>
     </div>
   </div>
+<div class="card">
+    <div class="loading-indicator">
+        <img src="https://cdn.glitch.global/3128bf45-3a23-4695-81ba-3aba21b8585b/IMG_1966.gif?v=1729824394361" alt="Loading..." />
+    </div>
+  <video id="wakameVideo" controls autoplay poster="/vi/<%= videoData.videoId %>/maxresdefault.jpg">
+    <source src="<%= videoData.stream_url %>" type="video/mp4">
+  </video>
+</div>
    <style>
 	* {
 		--plyr-color-main: #EBFF00;

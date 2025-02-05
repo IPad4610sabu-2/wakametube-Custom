@@ -8,3 +8,6 @@ yukiyoutubemodを作ったSkype-GitHubさんに感謝します
 
 https://github.com/sadaramagura/watawata
 わかめtubeを作ったsadaramaguraさんに感謝します
+
+現在はここ
+https://github.com/ipadpro-clewaka/mudantensaiyurusan

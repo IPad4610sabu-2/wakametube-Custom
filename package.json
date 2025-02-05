@@ -23,7 +23,7 @@
   },
   "description": "わかめ",
   "engines": {
-    "node": "16.x"
+    "node": "22.x"
   },
   "author": "wakame02",
   "private": false,
